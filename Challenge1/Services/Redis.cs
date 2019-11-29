@@ -1,5 +1,5 @@
 ﻿using StackExchange.Redis;
-
+using System;
 
 namespace HashdexChallenge1.Services
 {
@@ -19,6 +19,13 @@ namespace HashdexChallenge1.Services
         public void Publish(string message, string channel = Utils.Constants.DefaultPubSubChannel)
         {
             _sub.Publish(channel, message);
+        }
+
+        public void Subscribe(string channel = Utils.Constants.DefaultPubSubChannel)
+        {
+            _sub.Subscribe(channel).OnMessage(channelMessage => { 
+                Console.WriteLine( (string)channelMessage.Message); 
+            });
         }
 
     }

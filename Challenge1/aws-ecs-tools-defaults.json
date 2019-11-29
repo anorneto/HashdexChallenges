@@ -1,0 +1,9 @@
+
+{
+    "region" : "us-east-2",
+    "profile" : "EC2",
+    "configuration" : "Release",
+    "tag"           : "hashdexchallenge1:latest",
+    "docker-build-working-dir" : "",
+    "vstoolkit-deployment-mode" : "PushOnly"
+}

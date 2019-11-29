@@ -33,6 +33,8 @@ namespace HashdexChallenge1.Services
                tradeObj = new Models.Trade(TradeId: data.TradeId.ToString(), TradeTime: data.TradeTime, Symbol: data.Symbol,
                                         Price: data.Price, Qty: data.Quantity);
                string json = JsonSerializer.Serialize(tradeObj);
+               
+               Console.WriteLine(json);
 
                redis.Publish(json);
            });
