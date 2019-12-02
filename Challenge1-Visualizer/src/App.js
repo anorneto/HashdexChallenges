@@ -1,11 +1,13 @@
 import React from "react";
 import "./App.css";
-import TradeList from './components/TradesList';
+import TradesTable from './components/TradesTable';
+
+import 'bootstrap/dist/css/bootstrap.css';
 
 function App() {
   return (
     <div className="App">
-      <TradeList/>
+      <TradesTable/>
     </div>
   );
 }
