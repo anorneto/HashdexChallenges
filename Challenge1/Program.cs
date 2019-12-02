@@ -23,7 +23,8 @@ namespace HashdexChallenge1
             /*  var redis = new Services.Redis();
               redis.Subscribe();*/
 
-            Services.ICryptoDataStream dataStream = new Services.BinanceDataStream();
+            Services.Redis redisInstance = new Services.Redis();
+            Services.ICryptoDataStream dataStream = new Services.BinanceDataStream(redisInstance);
             dataStream.PubTrades(Utils.Constants.DefaultSymbol);
 
             //Locks the main thread until we press Ctrl + C
