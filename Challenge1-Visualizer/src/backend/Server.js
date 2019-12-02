@@ -1,8 +1,7 @@
 const redis = require("ioredis");
 const io = require("socket.io").listen(8000);
 const constants = require("../utils/constants");
-
-
+io.origins('*:*');
 io.sockets.on("connection", function(socket) {
   console.log(`Socket ${socket.id} connected.`);
 });
@@ -19,4 +18,3 @@ client.on("message", (channel, message) => {
 });
 
 client.subscribe(constants.PubSubChannel);
-

@@ -2,7 +2,7 @@ import React from "react";
 import socketIO from "socket.io-client";
 import { Table, Spinner } from "react-bootstrap";
 import TableItem from "./TableItem";
-import { PubSubChannel } from "../utils/constants";
+import * as constants from "../utils/constants";
 import "./Table.css";
 
 class TradesTable extends React.Component {
@@ -12,8 +12,8 @@ class TradesTable extends React.Component {
   }
 
   componentDidMount() {
-    const socket = socketIO("http://localhost:8000");
-    socket.on(PubSubChannel, data => {
+    const socket = socketIO(constants.RedisUrl+":8000");
+    socket.on(constants.PubSubChannel, data => {
       let newList = [data].concat(this.state.trades.slice(0, 14));
       this.setState({ trades: newList });
     });
