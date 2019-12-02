@@ -10,7 +10,7 @@ def change_coins(coins, amount):
                 result[i] = result[i-coin] + 1
                 coinsResults[i] = coinsResults[i-coin] + [coin]
     if result[amount] == max:
-        return []
+        return "not possible"
 
     resultDict = {}
     for i in coinsResults[amount]:
